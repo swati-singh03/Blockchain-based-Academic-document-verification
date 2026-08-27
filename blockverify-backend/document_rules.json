@@ -1,0 +1,35 @@
+[
+  {
+    "type": "Aadhaar",
+    "authority": {
+      "name": "UIDAI",
+      "email": "help@uidai.gov.in"
+    },
+    "keywords": ["uidai", "aadhaar", "government of india", "dob", "male", "female"],
+    "patterns": {
+      "aadhaar": "\\d{4}\\s\\d{4}\\s\\d{4}"
+    }
+  },
+  {
+    "type": "PAN",
+    "authority": {
+      "name": "Income Tax Department",
+      "email": "incometax@gov.in"
+    },
+    "keywords": ["income tax", "permanent account number"],
+    "patterns": {
+      "pan": "[A-Z]{5}[0-9]{4}[A-Z]"
+    }
+  },
+  {
+    "type": "Marksheet",
+    "authority": {
+      "name": "CBSE Board",
+      "email": "cbse@gov.in"
+    },
+    "keywords": ["marks", "result", "board", "school"],
+    "patterns": {
+      "roll": "\\d{6}"
+    }
+  }
+]

@@ -1,0 +1,118 @@
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(10px);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: #cbd5f5;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* ===== LANGUAGE SELECT ===== */
+.lang-select {
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: #020617;
+  color: white;
+  border: 1px solid #334155;
+  cursor: pointer;
+}
+
+/* ===== THEME BUTTON ===== */
+.theme-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ===== PROFILE ===== */
+.profile-container {
+  position: relative;
+}
+
+/* Profile Circle */
+.profile-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00ffff, #06b6d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.profile-circle:hover {
+  transform: scale(1.1);
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #020617;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Email */
+.email {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+
+/* ===== LOGOUT BUTTON ===== */
+.logout-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}

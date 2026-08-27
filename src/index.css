@@ -1,0 +1,472 @@
+/* ==========================================
+   GLOBAL STYLES
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  color: white;
+  overflow-x: hidden;
+  background-image: url("image.png"); /* your bg image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Dark overlay for contrast */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(5,10,30,0.85), rgba(5,20,50,0.85));
+  z-index: -1;
+}
+
+/* Page fade */
+#root {
+  opacity: 0;
+  animation: pageFade 1.5s ease forwards;
+}
+
+@keyframes pageFade {
+  to { opacity: 1; }
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 80px;
+}
+
+.navbar h2 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #d1d5db;
+  margin-left: 30px;
+  transition: 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #00eaff;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lang-select {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lang-select option {
+  color: black;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* ==========================================
+   HERO / INTRO
+   ========================================== */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.hero-content {
+  max-width: 850px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #94a3b8;
+  margin-bottom: 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* Primary Button */
+.primary-btn {
+  padding: 14px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px #06b6d4;
+}
+
+/* Secondary Button */
+.secondary-btn {
+  padding: 14px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.secondary-btn:hover {
+  background: rgba(255,255,255,0.1);
+  transform: scale(1.05);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   REGISTER / LOGIN CARD
+   ========================================== */
+.register-wrapper {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-card {
+  width: 520px;
+  padding: 55px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 60px rgba(0,200,255,0.25), 0 20px 80px rgba(0,0,0,0.7);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(70px) scale(0.95);
+  animation: cardEnter 1.4s ease forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes cardEnter {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.register-card h1 {
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   FILE INPUT / UPLOAD BUTTON
+   ========================================== */
+.file-label,
+.upload-btn,
+.custom-file-upload {
+  display: inline-block;
+  padding: 16px 50px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  transition: all 0.35s ease;
+  animation: breathingGlow 4s ease-in-out infinite;
+}
+
+.file-label input,
+.upload-btn input,
+.custom-file-upload input {
+  display: none;
+}
+
+.file-label:hover,
+.upload-btn:hover,
+.custom-file-upload:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 50px rgba(0,200,255,0.7);
+}
+
+.file-label::after,
+.upload-btn::after,
+.custom-file-upload::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-20deg);
+}
+
+.file-label:hover::after,
+.upload-btn:hover::after,
+.custom-file-upload:hover::after {
+  animation: shine 0.8s forwards;
+}
+
+@keyframes shine {
+  100% { left: 130%; }
+}
+
+@keyframes breathingGlow {
+  0% { box-shadow: 0 0 20px rgba(0,200,255,0.3); }
+  50% { box-shadow: 0 0 40px rgba(0,200,255,0.6); }
+  100% { box-shadow: 0 0 20px rgba(0,200,255,0.3); }
+}
+
+.file-label:active,
+.upload-btn:active,
+.custom-file-upload:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 70px rgba(0,255,255,0.9);
+}
+
+/* ==========================================
+   DASHBOARD CONTAINER
+   ========================================== */
+.dashboard-container {
+  padding: 40px;
+  background: rgba(10,20,50,0.85);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  color: white;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+/* ==========================================
+   STATS CARDS
+   ========================================== */
+.stats-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  padding: 25px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  font-size: 18px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0,200,255,0.5);
+}
+
+.stat-card h3 {
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+
+.approved { background: linear-gradient(135deg,#00c853,#64dd17); }
+.pending  { background: linear-gradient(135deg,#ff9100,#ffab40); }
+.rejected { background: linear-gradient(135deg,#d50000,#ff5252); }
+
+/* ==========================================
+   DASHBOARD TABLE
+   ========================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  color: white;
+  margin-top: 20px;
+}
+
+th {
+  background: rgba(0,120,255,0.85);
+  color: white;
+  padding: 14px;
+  text-align: center;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0,200,255,0.5);
+}
+
+button.blockchain-btn {
+  background: linear-gradient(135deg,#00eaff,#0072ff);
+  color: white;
+}
+
+button.approve-btn {
+  background: linear-gradient(135deg,#00c853,#64dd17);
+  color: white;
+}
+
+button.reject-btn {
+  background: linear-gradient(135deg,#d50000,#ff5252);
+  color: white;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 900px) {
+  .register-card,
+  .dashboard-container {
+    width: 90%;
+    padding: 40px;
+  }
+
+  table { font-size: 14px; }
+  .stats-container { flex-direction: column; }
+}
+/* HERO FIX */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* 🔥 BUTTONS SPACE FIX */
+.hero-content {
+  max-width: 700px;
+  margin-left: 80px;
+}
+
+/* 🔥 FEATURES PERFECT POSITION */
+.features-modern {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* GRID */
+.feature-grid {
+  display: flex;
+  gap: 30px;
+}
+
+/* 🔥 MODERN BUTTON CARDS */
+.feature-btn {
+  width: 260px;
+  padding: 18px;
+  border-radius: 50px;
+
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: white;
+
+  text-align: center;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+/* TEXT */
+.feature-btn h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.feature-btn p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+.primary-btn {
+  font-size: 18px;   /* 👈 bada font */
+  padding: 12px 28px;  /* 👈 thoda button bhi bada */
+}
+/* 🔥 FORCE FIX */
+
+
+.features-modern {
+  display: flex;
+  justify-content: center;   /* 👈 center alignment */
+  align-items: center;
+  gap: 10px;      
+  padding-top: 40%;          /* spacing between boxes */
+  width: 100%;
+  transform: translateY(60px);   /* 👈 sirf upar uthayega */
+}
